@@ -4,11 +4,17 @@
 CMakeFiles/HW6.dir/Address.cpp.obj: ../Address.cpp
 CMakeFiles/HW6.dir/Address.cpp.obj: ../Address.h
 
+CMakeFiles/HW6.dir/Employee.cpp.obj: ../Address.h
+CMakeFiles/HW6.dir/Employee.cpp.obj: ../Employee.cpp
+CMakeFiles/HW6.dir/Employee.cpp.obj: ../Employee.h
+CMakeFiles/HW6.dir/Employee.cpp.obj: ../Person.h
+
 CMakeFiles/HW6.dir/Person.cpp.obj: ../Address.h
 CMakeFiles/HW6.dir/Person.cpp.obj: ../Person.cpp
 CMakeFiles/HW6.dir/Person.cpp.obj: ../Person.h
 
 CMakeFiles/HW6.dir/main.cpp.obj: ../Address.h
+CMakeFiles/HW6.dir/main.cpp.obj: ../Employee.h
 CMakeFiles/HW6.dir/main.cpp.obj: ../Person.h
 CMakeFiles/HW6.dir/main.cpp.obj: ../main.cpp
 

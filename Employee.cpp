@@ -55,7 +55,24 @@ void Employee::setWorkDone(int workDone) {
 
 ostream &operator<<(ostream & out, Employee & e) {
 out<<"Name: "<<e.getName()<<endl<<"ID: "<<e.getId()<<endl<<"Address:"<<e.getAddress()<<endl;
-out<<"hour Work: "<<e.hourWork<<endl<<"salary perHour: "<<e.salaryPerHour<<endl<<"work to Do: "<<e.workToDo<<endl;
-
+out<<"hour Work: "<<e.hourWork<<endl<<"salary perHour: "<<e.salaryPerHour<<endl<<"work to Do: "<<e.workToDo<<endl<<"work done"<<e.workDone;
     return out;
+}
+
+istream &operator>>(istream & in, Employee & e) {
+    cout<<"hourWork-salaryPerHour-workToDo-workDone: "<<endl;
+    in>>e.hourWork>>e.salaryPerHour>>e.workToDo>>e.workDone>>static_cast<Person&>(e);
+
+    return in;
+}
+
+Employee &Employee::operator=(const Employee & e) {
+
+    Person::operator=(e);
+    hourWork=e.hourWork;
+    salaryPerHour=e.salaryPerHour;
+    workToDo=e.workToDo;
+    workDone=e.workDone;
+
+    return *this;
 }

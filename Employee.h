@@ -40,6 +40,8 @@ public:
 
     friend istream &operator>>(istream &, Employee &);
 
+    Employee &operator=(const Employee &);
+
 
 };
 
