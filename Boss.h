@@ -19,11 +19,15 @@ public:
 
     Boss();
 
-    Boss(const Boss&);
+    Boss(const Boss &);
 
     friend ostream &operator<<(ostream &os, const Boss &boss);
 
-    friend istream &operator>>(istream&,Boss &);
+    friend istream &operator>>(istream &, Boss &);
+
+    Boss &operator=(const Boss &);
+
+    double calculateSalary() const override;
 
 
 };

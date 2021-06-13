@@ -44,7 +44,7 @@ public:
 
     bool validate() override;//difference between this and the same in the parent is in the third char we have '*'
 
-    double calculateSalary() const;
+    virtual double calculateSalary() const;
 
     double efficiency() const;
 

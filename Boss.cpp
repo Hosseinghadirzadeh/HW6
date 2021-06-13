@@ -38,3 +38,13 @@ istream &operator>>(istream & in, Boss & b) {
     in>>b.numberOfEmployees>>static_cast< Employee &>(b);
     return in;
 }
+
+Boss &Boss::operator=(const Boss & boss) {
+    numberOfEmployees=boss.numberOfEmployees;
+    Employee::operator=(boss);
+    return *this;
+}
+
+double Boss::calculateSalary() const {
+    return Employee::calculateSalary()*1.15;
+}
