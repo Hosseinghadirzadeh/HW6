@@ -99,10 +99,5 @@ double Employee::calculateSalary() const {
 }
 
 double Employee::efficiency() const {
-
-    double percent=((double)(workDone-workToDo)/workDone);
-
-    double efficient=(100*percent)/hourWork;
-
-    return efficient;
+    return (((double)workDone / workToDo) * 100) / hourWork;
 }

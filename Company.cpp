@@ -85,4 +85,14 @@ istream &operator>>(istream & in, Company &c) {
     return in;
 }
 
+Employee Company::maxEfficiency() {
+    Employee *temp = employeeArray[0];
+    for (int i = 1; i < boss->getNumberOfEmployees(); ++i) {
+        if (employeeArray[i]->efficiency() > temp->efficiency()) {
+            temp = new Employee(*employeeArray[i]);
+        }
+    }
+    return *temp;
+}
+
 
