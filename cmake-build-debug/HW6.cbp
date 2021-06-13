@@ -86,6 +86,12 @@
 		<Unit filename="C:/Users/Hossein/CLionProjects/HW6/Address.h">
 			<Option target="HW6"/>
 		</Unit>
+		<Unit filename="C:/Users/Hossein/CLionProjects/HW6/Boss.cpp">
+			<Option target="HW6"/>
+		</Unit>
+		<Unit filename="C:/Users/Hossein/CLionProjects/HW6/Boss.h">
+			<Option target="HW6"/>
+		</Unit>
 		<Unit filename="C:/Users/Hossein/CLionProjects/HW6/Employee.cpp">
 			<Option target="HW6"/>
 		</Unit>

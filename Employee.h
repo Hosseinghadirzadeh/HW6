@@ -42,6 +42,13 @@ public:
 
     Employee &operator=(const Employee &);
 
+    bool validate() override;//difference between this and the same in the parent is in the third char we have '*'
+
+    double calculateSalary() const;
+
+    double efficiency() const;
+
+
 
 };
 
