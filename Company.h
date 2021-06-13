@@ -42,6 +42,8 @@ public:
 
     void ChangeBoss();
 
+    void gift();
+
 };
 
 

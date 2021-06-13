@@ -81,7 +81,7 @@ void Company::setEmployeeArray(Employee **employeeArray) {
     Company::employeeArray = employeeArray;
 }
 
-istream &operator>>(istream & in, Company &c) {
+istream &operator>>(istream &in, Company &c) {
     in >> c.budget;
     in >> *c.boss;
     for (int i = 0; i < c.boss->getNumberOfEmployees(); ++i) {
@@ -90,7 +90,7 @@ istream &operator>>(istream & in, Company &c) {
     return in;
 }
 
-Employee* Company::maxEfficiency() {
+Employee *Company::maxEfficiency() {
     Employee *temp = employeeArray[0];
     for (int i = 1; i < boss->getNumberOfEmployees(); ++i) {
         if (employeeArray[i]->efficiency() > temp->efficiency()) {
@@ -101,24 +101,32 @@ Employee* Company::maxEfficiency() {
 }
 
 double Company::averageEfficiency() {
-double sum=0;
+    double sum = 0;
     for (int i = 0; i < boss->getNumberOfEmployees(); ++i)
-        sum+=(employeeArray[i]->efficiency());
-    return sum/boss->getNumberOfEmployees();
+        sum += (employeeArray[i]->efficiency());
+    return sum / boss->getNumberOfEmployees();
 }
 
 void Company::ChangeBoss() {
-if(boss->efficiency()<40){
-Employee* e=maxEfficiency();
-int number=boss->getNumberOfEmployees();
-Employee *temp;
-temp=boss;
-boss=static_cast<Boss*>(e);
-e=temp;
-
-
+    if (boss->efficiency() < 40) {
+        Employee *e = maxEfficiency();
+        int number = boss->getNumberOfEmployees();
+        Employee *temp;
+        temp = boss;
+        boss = static_cast<Boss *>(e);
+        e = temp;
+    }
 
 }
+
+void Company::gift() {
+    for (int i = 0; i < boss->getNumberOfEmployees(); ++i) {
+        if (stoi(employeeArray[i]->getId().substr(0, 2)) < 90)
+            employeeArray[i]->setHourWork(employeeArray[i]->getHourWork() + 5);
+
+    }
+    Employee* em=maxEfficiency();
+     em->setHourWork(em->getHourWork()+10);
 
 }
 
