@@ -123,11 +123,16 @@ void Company::gift() {
     for (int i = 0; i < boss->getNumberOfEmployees(); ++i) {
         if (stoi(employeeArray[i]->getId().substr(0, 2)) < 90)
             employeeArray[i]->setHourWork(employeeArray[i]->getHourWork() + 5);
-
     }
-    Employee* em=maxEfficiency();
+    Employee* em=maxEfficiency();//em= employee max
      em->setHourWork(em->getHourWork()+10);
+}
 
+void Company::payForService() {
+    for (int i = 0; i <boss->getNumberOfEmployees() ; ++i) {
+        if(employeeArray[i]->getAddress().getCity()!="Tehran")
+            employeeArray[i]->setHourWork(employeeArray[i]->getHourWork() + 5);
+    }
 }
 
 

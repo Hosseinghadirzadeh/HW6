@@ -44,6 +44,8 @@ public:
 
     void gift();
 
+    void payForService();
+
 };
 
 
