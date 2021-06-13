@@ -8,7 +8,7 @@
 using namespace std;
 
 class Person {
-private:
+protected:
     string name;
     string id;
     Address address;

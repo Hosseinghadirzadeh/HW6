@@ -9,8 +9,8 @@ using namespace std;
 int main() {
 
 Address a;
-Boss b;
-cin>>b;
+Employee e(2,2,2,2,"ss","98*ad37320",a);
+cout<<e.validate();
 
 
 

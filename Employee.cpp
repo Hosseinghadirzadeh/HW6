@@ -84,52 +84,9 @@ Employee &Employee::operator=(const Employee &e) {
 }
 
 bool Employee::validate() {
-
-    if (getId().length() < 8 || getId().length() > 10)
+    if (id[2] != '*')
         return false;
-    string sal = getId().substr(0, 2);
-
-    if (stoi(sal) < 84 || stoi(sal) > 99)
-        return false;
-
-    if (getId().length() == 8) {
-
-        if (getId()[2] != '*')
-            return false;
-    }
-    for (int i = 3; i < 8; ++i) {
-        if (getId()[i] - 48 == 4 || getId()[i] - 48 == 5 || getId()[i] - 48 == 6)
-            return false;
-    }
-
-    if (getId().length() == 9) {
-        if (getId()[2] != '*')
-            return false;
-        for (int i = 0; i <= 9; ++i) {
-            if (getId()[3] - 48 == i)
-                return false;
-        }
-        for (int i = 4; i < 8; ++i) {
-            if (getId()[i] - 48 == 4 || getId()[i] - 48 == 5 || getId()[i] - 48 == 6)
-                return false;
-        }
-    }
-    if (getId().length() == 10) {
-        if (getId()[2]!= '*')
-            return false;
-        for (int j = 3; j <= 4; ++j) {
-            for (int i = 0; i <= 9; ++i) {
-                if (getId()[j] - 48 == i)
-                    return false;
-            }
-        }
-        for (int i = 5; i < 8; ++i) {
-            if (getId()[i] - 48 == 4 || getId()[i] - 48 == 5 || getId()[i] - 48 == 6)
-                return false;
-        }
-    }
-    return true;
-
+    return Person::validate();
 
 }
 
