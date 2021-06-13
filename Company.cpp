@@ -90,14 +90,14 @@ istream &operator>>(istream & in, Company &c) {
     return in;
 }
 
-Employee Company::maxEfficiency() {
+Employee* Company::maxEfficiency() {
     Employee *temp = employeeArray[0];
     for (int i = 1; i < boss->getNumberOfEmployees(); ++i) {
         if (employeeArray[i]->efficiency() > temp->efficiency()) {
             temp = new Employee(*employeeArray[i]);
         }
     }
-    return *temp;
+    return temp;
 }
 
 double Company::averageEfficiency() {
@@ -105,6 +105,21 @@ double sum=0;
     for (int i = 0; i < boss->getNumberOfEmployees(); ++i)
         sum+=(employeeArray[i]->efficiency());
     return sum/boss->getNumberOfEmployees();
+}
+
+void Company::ChangeBoss() {
+if(boss->efficiency()<40){
+Employee* e=maxEfficiency();
+int number=boss->getNumberOfEmployees();
+Employee *temp;
+temp=boss;
+boss=static_cast<Boss*>(e);
+e=temp;
+
+
+
+}
+
 }
 
 

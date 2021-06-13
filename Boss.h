@@ -27,7 +27,7 @@ public:
 
     Boss &operator=(const Boss &);
 
-    double calculateSalary() const override;
+    double calculateSalary() const;
 
 
 };

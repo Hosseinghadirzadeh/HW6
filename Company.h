@@ -36,11 +36,11 @@ public:
 
     void setEmployeeArray(Employee **employeeArray);
 
-    Employee maxEfficiency();
+    Employee* maxEfficiency();
 
     double averageEfficiency();
 
-
+    void ChangeBoss();
 
 };
 
