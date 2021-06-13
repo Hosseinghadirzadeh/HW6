@@ -91,7 +91,7 @@ bool Employee::validate() {
 }
 
 double Employee::calculateSalary() const {
-    double percent=((double)(workDone-workToDo)/workDone);
+    double percent=(((double)workDone/workToDo));
     double salary=salaryPerHour*hourWork;
     salary=salary-(salary*percent);
     return salary;

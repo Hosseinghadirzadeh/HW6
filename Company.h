@@ -46,6 +46,7 @@ public:
 
     void payForService();
 
+    bool isEnoughBudget();
 };
 
 

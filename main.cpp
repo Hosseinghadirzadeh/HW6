@@ -22,8 +22,8 @@ int main() {
     employee[7] = new Employee( 3, 6000, 12,11,"Reza Shiri", "99*rt11320", *(new Address("Iran", "Shiraz", "Fattah")));
     employee[8] = new Employee(8, 15000,25, 19,"Amirhosein Momen", "94*a01203", *(new Address("Iran", "Shiraz", "Fattah")) );
     employee[9] = new Employee(2, 4000, 30,25,"Mohammad Rad", "87*ox19280", *(new Address("Iran", "Shiraz", "Fattah")) );
-Company c(222,boss,employee);
-cout<<c.averageEfficiency();
+Company c(10,boss,employee);
+cout<<c.isEnoughBudget();
 
     return 0;
 }
