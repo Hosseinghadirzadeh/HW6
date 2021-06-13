@@ -13,7 +13,7 @@ Company::Company(int budget, Boss *boss, Employee **array) {
 
 Company::Company(const Company &c) {
     budget = c.budget;
-    boss = new Boss;
+    boss = new Boss(*c.boss);
     employeeArray = new Employee *[boss->getNumberOfEmployees()];
     for (int i = 0; i < boss->getNumberOfEmployees(); ++i) {
         employeeArray[i] = new Employee(*(c.employeeArray[i]));
@@ -28,30 +28,35 @@ Company::~Company() {
 }
 
 ostream &operator<<(ostream &os, const Company &company) {
-    Company temp = company;
+    auto *temp = new Company(company);
     bool flag = true;
+    //sorting temp by name
     while (flag) {
+
         flag = false;
-        for (int i = 0; i < temp.boss->getNumberOfEmployees() - 1; ++i) {
-            if (temp.getEmployeeArray()[i]->getName() > temp.employeeArray[i + 1]->getName()) {
-                std::swap(temp.employeeArray[i], temp.employeeArray[i + 1]);
+        for (int i = 0; i < temp->boss->getNumberOfEmployees() - 1; ++i) {
+            if (temp->employeeArray[i]->getName() > temp->employeeArray[i + 1]->getName()) {
+                std::swap(temp->employeeArray[i], temp->employeeArray[i + 1]);
                 flag = true;
             }
         }
     }
+    //sorting temp by id
     flag = true;
     while (flag) {
         flag = false;
-        for (int i = 0; i < temp.boss->getNumberOfEmployees() - 1; ++i) {
-            if (temp.employeeArray[i]->getId().substr(0, 2) < temp.employeeArray[i + 1]->getId().substr(0, 2)) {
-                std::swap(temp.employeeArray[i], temp.employeeArray[i + 1]);
+        for (int i = 0; i < temp->boss->getNumberOfEmployees() - 1; ++i) {
+            if (temp->employeeArray[i]->getId().substr(0, 2) < temp->employeeArray[i + 1]->getId().substr(0, 2)) {
+                std::swap(temp->employeeArray[i], temp->employeeArray[i + 1]);
                 flag = true;
             }
         }
     }
-    os << *(temp.boss) << std::endl << std::endl;
-    for (int i = 0; i < temp.boss->getNumberOfEmployees(); ++i) {
-        os << *(temp.employeeArray[i]) << std::endl << temp.employeeArray[i]->efficiency() << std::endl << std::endl;
+    //print sorted temp
+    os << *(temp->boss) << endl << "efficiency: " <<  temp->boss->efficiency() << endl << "salary with gifts: " << temp->boss->calculateSalary() << endl << endl;
+    for (int i = 0; i < temp->boss->getNumberOfEmployees(); ++i) {
+        os << *(temp->employeeArray[i]) << endl;
+        os << "efficiency: " <<  temp->employeeArray[i]->efficiency() << endl << "salary with gifts: " << temp->employeeArray[i]->calculateSalary() << endl << endl;
 
     }
     return os;
@@ -108,15 +113,20 @@ double Company::averageEfficiency() {
 }
 
 void Company::ChangeBoss() {
-    if (boss->efficiency() < 40) {
-        Employee *e = maxEfficiency();
-        int number = boss->getNumberOfEmployees();
-        Employee *temp;
-        temp = boss;
-        boss = static_cast<Boss *>(e);
-        e = temp;
-    }
 
+    if (boss->efficiency() < 40.0) {
+        Employee *max = maxEfficiency();
+        for (int i = 0; i < boss->getNumberOfEmployees(); ++i) {
+            if (employeeArray[i]->efficiency() == max->efficiency()) {
+                int numberOfEmployee = boss->getNumberOfEmployees();
+                Employee *temp = boss;
+                boss = static_cast<Boss *>(employeeArray[i]);
+                employeeArray[i] = temp;
+                boss->setNumberOfEmployees(numberOfEmployee);
+                break;
+            }
+        }
+    }
 }
 
 void Company::gift() {
@@ -124,7 +134,7 @@ void Company::gift() {
         if (stoi(employeeArray[i]->getId().substr(0, 2)) < 90)
             employeeArray[i]->setHourWork(employeeArray[i]->getHourWork() + 5);
     }
-    Employee* em=maxEfficiency();//em= employee max
+    Employee* em=maxEfficiency();//em= employeeArray max
      em->setHourWork(em->getHourWork()+10);
 }
 
@@ -145,6 +155,17 @@ bool Company::isEnoughBudget() {
     else
         return false;
 
+}
+
+ofstream Company::writeOnFile() {
+    ofstream write("details.txt");
+    write << boss->getName() << " " << boss->getId() << " " << boss->efficiency() << " "
+          << boss->calculateSalary() << endl;
+    for (int i = 0; i < boss->getNumberOfEmployees(); ++i) {
+        write << employeeArray[i]->getName() << " " << employeeArray[i]->getId() << " " << employeeArray[i]->efficiency() << " "
+              << employeeArray[i]->calculateSalary() << endl;
+    }
+    return write;
 }
 
 

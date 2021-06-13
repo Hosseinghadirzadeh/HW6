@@ -11,8 +11,7 @@ Employee::Employee(int hw, int sph, int wtd, int wd, string name, string id, Add
                                                                                                 hourWork(hw),
                                                                                                 salaryPerHour(sph),
                                                                                                 workToDo(wtd),
-                                                                                                workDone(wd) {
-}
+                                                                                                workDone(wd) {}
 
 Employee::Employee(const Employee &employee) : Person(employee) {
     hourWork = employee.hourWork;
@@ -21,7 +20,7 @@ Employee::Employee(const Employee &employee) : Person(employee) {
     workDone = employee.workDone;
     if(!validate())
     {cout<<"invalid id";
-        return;
+        exit(1);
     }
 
 }

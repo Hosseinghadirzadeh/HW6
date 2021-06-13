@@ -5,6 +5,7 @@
 #include "Boss.h"
 #include "Employee.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -47,7 +48,10 @@ public:
     void payForService();
 
     bool isEnoughBudget();
+
+    ofstream writeOnFile();
 };
+
 
 
 #endif //HW6_COMPANY_H
