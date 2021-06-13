@@ -10,6 +10,13 @@ CMakeFiles/HW6.dir/Boss.cpp.obj
  C:/Users/Hossein/CLionProjects/HW6/Boss.h
  C:/Users/Hossein/CLionProjects/HW6/Employee.h
  C:/Users/Hossein/CLionProjects/HW6/Person.h
+CMakeFiles/HW6.dir/Company.cpp.obj
+ C:/Users/Hossein/CLionProjects/HW6/Address.h
+ C:/Users/Hossein/CLionProjects/HW6/Boss.h
+ C:/Users/Hossein/CLionProjects/HW6/Company.cpp
+ C:/Users/Hossein/CLionProjects/HW6/Company.h
+ C:/Users/Hossein/CLionProjects/HW6/Employee.h
+ C:/Users/Hossein/CLionProjects/HW6/Person.h
 CMakeFiles/HW6.dir/Employee.cpp.obj
  C:/Users/Hossein/CLionProjects/HW6/Address.h
  C:/Users/Hossein/CLionProjects/HW6/Employee.cpp
@@ -22,6 +29,7 @@ CMakeFiles/HW6.dir/Person.cpp.obj
 CMakeFiles/HW6.dir/main.cpp.obj
  C:/Users/Hossein/CLionProjects/HW6/Address.h
  C:/Users/Hossein/CLionProjects/HW6/Boss.h
+ C:/Users/Hossein/CLionProjects/HW6/Company.h
  C:/Users/Hossein/CLionProjects/HW6/Employee.h
  C:/Users/Hossein/CLionProjects/HW6/Person.h
  C:/Users/Hossein/CLionProjects/HW6/main.cpp

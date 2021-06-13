@@ -20,7 +20,9 @@ public:
 
     virtual ~Company();
 
-  friend  ostream &operator<<(ostream &,Company&);
+    friend ostream &operator<<(ostream &, Company &);
+
+    friend istream &operator>>(istream &, Company &);
 
     int getBudget() const;
 
@@ -33,6 +35,9 @@ public:
     Employee **getEmployeeArray() const;
 
     void setEmployeeArray(Employee **employeeArray);
+
+    Employee maxEfficiency();
+
 };
 
 

@@ -10,6 +10,13 @@ CMakeFiles/HW6.dir/Boss.cpp.obj: ../Boss.h
 CMakeFiles/HW6.dir/Boss.cpp.obj: ../Employee.h
 CMakeFiles/HW6.dir/Boss.cpp.obj: ../Person.h
 
+CMakeFiles/HW6.dir/Company.cpp.obj: ../Address.h
+CMakeFiles/HW6.dir/Company.cpp.obj: ../Boss.h
+CMakeFiles/HW6.dir/Company.cpp.obj: ../Company.cpp
+CMakeFiles/HW6.dir/Company.cpp.obj: ../Company.h
+CMakeFiles/HW6.dir/Company.cpp.obj: ../Employee.h
+CMakeFiles/HW6.dir/Company.cpp.obj: ../Person.h
+
 CMakeFiles/HW6.dir/Employee.cpp.obj: ../Address.h
 CMakeFiles/HW6.dir/Employee.cpp.obj: ../Employee.cpp
 CMakeFiles/HW6.dir/Employee.cpp.obj: ../Employee.h
@@ -21,6 +28,7 @@ CMakeFiles/HW6.dir/Person.cpp.obj: ../Person.h
 
 CMakeFiles/HW6.dir/main.cpp.obj: ../Address.h
 CMakeFiles/HW6.dir/main.cpp.obj: ../Boss.h
+CMakeFiles/HW6.dir/main.cpp.obj: ../Company.h
 CMakeFiles/HW6.dir/main.cpp.obj: ../Employee.h
 CMakeFiles/HW6.dir/main.cpp.obj: ../Person.h
 CMakeFiles/HW6.dir/main.cpp.obj: ../main.cpp

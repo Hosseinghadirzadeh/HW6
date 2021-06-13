@@ -32,13 +32,13 @@ ostream &operator<<(ostream &os, Company &c1) {
     for (int i = 0; i < c.boss->getNumberOfEmployees() - 1; ++i) {
         for (int j = c.boss->getNumberOfEmployees() - 1; i < j; ++j) {
             if (c.employeeArray[j]->getId().substr(0, 2) < c.employeeArray[j - 1]->getId().substr(0, 2)) {
-                swap(*c.employeeArray[j],*c.employeeArray[j - 1]);
+                swap(c.employeeArray[j], c.employeeArray[j - 1]);
             }
             if (c.employeeArray[j]->getId().substr(0, 2) == c.employeeArray[j - 1]->getId().substr(0, 2)) {
                 for (int k = 0; k < c.boss->getNumberOfEmployees() - 1; ++k) {
                     for (int l = c.boss->getNumberOfEmployees() - 1; k < l; ++l) {
                         if (c.employeeArray[l]->getName() < c.employeeArray[l - 1]->getName())
-                            swap(*c.employeeArray[j], *c.employeeArray[j - 1]);
+                            swap(c.employeeArray[j], c.employeeArray[j - 1]);
                     }
                 }
 
@@ -75,3 +75,14 @@ Employee **Company::getEmployeeArray() const {
 void Company::setEmployeeArray(Employee **employeeArray) {
     Company::employeeArray = employeeArray;
 }
+
+istream &operator>>(istream & in, Company &c) {
+    in >> c.budget;
+    in >> *c.boss;
+    for (int i = 0; i < c.boss->getNumberOfEmployees(); ++i) {
+        in >> *c.employeeArray[i];
+    }
+    return in;
+}
+
+
