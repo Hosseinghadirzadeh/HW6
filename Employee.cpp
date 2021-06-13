@@ -101,3 +101,9 @@ double Employee::calculateSalary() const {
 double Employee::efficiency() const {
     return (((double)workDone / workToDo) * 100) / hourWork;
 }
+
+
+
+
+
+
